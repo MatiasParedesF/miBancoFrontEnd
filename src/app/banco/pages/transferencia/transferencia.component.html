@@ -2,29 +2,42 @@
 <h2>Transferencia</h2>
 <hr>
 <br>
-<form>
+<form (ngSubmit)="buscarDestinatarios()" autocomplete="off" > 
     <div class="row">
         <div class="col-5">
             <label for="termino">Buscar Destinatario</label>
-            <input type="text" autocomplete="off" name="termino" class="form-control" />
+            <input type="text"name="termino" [(ngModel)]="termino" class="form-control" (input)="teclaPresionada()" [value]="destinatario.nombre"/>
+            <div *ngIf="hayError" class="alert alert-danger">
+                No se encontraron destinatarios con el nombre {{termino}} 
+            </div>
         </div>
     </div>
-    <br>
+</form>
+<div class="row">
+    <div class="col-5" style="z-index: 1; position: absolute;">
+        <ul *ngIf="mostrarSugerencias" class="list-group">
+            <li *ngFor="let destinatario of destinatarios; let i=index" class="list-group-item list-group-item-action">
+                <a class="nav-link" (click)="asignaDestinatario(destinatario)">{{destinatario.nombre}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<br>
     <div class="row">
        <div class="col-12">
         <span><strong>Detalle del destinatario</strong></span>
        </div> 
        <div class="col-12">
-           Nombre
+           Nombre:{{destinatario.nombre}}
        </div>
        <div class="col-12">
-           Correo
+           Correo:{{destinatario.correo}}
        </div>
        <div class="col-12">
-           Banco
+           Banco:{{destinatario.banco[0].nombre}}
        </div>
        <div class="col-12">
-           Tipo de Cuenta
+           Tipo de Cuenta:{{destinatario.cuenta[0].tipo}}
        </div>
     </div>
     <br> 
@@ -34,10 +47,9 @@
             <input type="text" autocomplete="off" name="termino" class="form-control" />
         </div>
     </div>
-</form>
 <br>
 <div class="row">
     <div class="col-4"></div>
-    <div class="col-4"><button type="submit" class="w-100 btn btn-primary btn-lg">Transferir</button></div>
+    <div class="col-4"><button class="w-100 btn btn-primary btn-lg">Transferir</button></div>
     <div class="col-4"></div>
   </div>

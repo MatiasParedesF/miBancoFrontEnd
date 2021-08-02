@@ -13,13 +13,15 @@ export class NuevoDestinatarioComponent {
 
   bancos: Bank[]=[];
   destinatario: Destinatario={
+    _id:'',
     nombre:'',
-    rut:'',
+    run:'',
+    dv:'',
     correo:'',
     telefono:'',
-    banco:'',
-    cuentaTipo:'',
-    cuentaNumero:0
+    banco:[{nombre:'',id:''}],
+    cuenta:[{tipo:'',numero:''}],
+    usuario:''
   }
 
   constructor(private bancoService:BancoService) {
@@ -36,7 +38,8 @@ export class NuevoDestinatarioComponent {
   }
 
   crearDestinatario(){
-    console.log(this.destinatario);
+
+
   }
 
 

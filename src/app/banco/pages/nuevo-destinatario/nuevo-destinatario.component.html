@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-5">
         <label for="rut">Rut</label>
-        <input type="text" class="form-control" [(ngModel)]="destinatario.rut" id="rut" [ngModelOptions]="{standalone: true}" />
+        <input type="text" class="form-control" [(ngModel)]="destinatario.run" id="rut" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col-5">
         <label for="nombre">Nombre</label>
@@ -32,7 +32,7 @@
       </div>
       <div class="col-5">
         <label for="cuentaTipo">Tipo de cuenta</label>
-        <select [(ngModel)]="destinatario.cuentaTipo" class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone: true}">
+        <select [(ngModel)]="destinatario.cuenta[0].tipo" class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone: true}">
           <option>Cuenta Vista</option>
           <option>Cuenta de Ahorro</option>
           <option>Cuenta Corriente</option>
@@ -42,7 +42,7 @@
     <div class="row">
       <div class="col-5">
         <label for="cuentaNumero">N° De Cuenta</label>
-        <input type="number" class="form-control" [(ngModel)]="destinatario.cuentaNumero" id="cuentaNumero" [ngModelOptions]="{standalone: true}"/>
+        <input type="number" class="form-control" [(ngModel)]="destinatario.cuenta[0].numero" id="cuentaNumero" [ngModelOptions]="{standalone: true}"/>
       </div>
     </div>
     <br>
