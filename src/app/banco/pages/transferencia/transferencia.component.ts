@@ -2,15 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import {debounceTime} from 'rxjs/operators'
 import { BancoService } from '../../services/banco.service';
-import { Destinatario, Banco } from '../../interfaces/destinatario.interface';
+import { Destinatario } from '../../interfaces/destinatario.interface';
 
 @Component({
   selector: 'app-transferencia',
   templateUrl: './transferencia.component.html',
-  styles: [`
-  $zindex-dropdown:1000;
-  `
-  ]
+  styles: [ ]
 })
 export class TransferenciaComponent implements OnInit {
 
@@ -41,7 +38,6 @@ export class TransferenciaComponent implements OnInit {
     this.hayError=false; 
     this.bancoService.obtenerDestinatarios(this.termino)
     .subscribe(destinatarios=>{
-      console.log(destinatarios);
       this.destinatarios=destinatarios;
     },(err)=>{
       this.hayError=true;

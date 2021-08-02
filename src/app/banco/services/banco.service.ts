@@ -10,7 +10,7 @@ import { Destinatario } from '../interfaces/destinatario.interface';
 })
 export class BancoService {
   private _servicioBancoUrl : string='https://bast.dev/api/banks.php';
-  private _servicioApiUrl   : string='http://localhost:7999/api';
+  private _servicioApiUrl   : string='http://mibanco.germen.cl/api';
   
   constructor(private http:HttpClient) { }
 
