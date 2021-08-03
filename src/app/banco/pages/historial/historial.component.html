@@ -12,13 +12,13 @@
         <th> Monto </th>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr *ngFor="let transferencia of listahistorial; let i=index">
+            <td>{{i + 1}}</td>
+            <td>{{transferencia.detinatario[i].nombre}}</td>
+            <td>{{transferencia.detinatario[i].run}}</td>
+            <td>{{transferencia.detinatario[i].banco[0].nombre}}</td>
+            <td>{{transferencia.detinatario[i].cuenta[0].tipo}}</td>
+            <td>{{transferencia.monto}}</td>
         </tr>
     </tbody>
 </table>

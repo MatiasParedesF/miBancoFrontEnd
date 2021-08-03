@@ -1,0 +1,28 @@
+export interface Transferencias {
+    fecha:       Date;
+    usuario:     string;
+    monto:       number;
+    detinatario: Detinatario[];
+}
+
+export interface Detinatario {
+    _id:      string;
+    nombre:   string;
+    run:      string;
+    dv:       string;
+    banco:    Banco[];
+    cuenta:   Cuenta[];
+    usuario:  string;
+    correo:   string;
+    telefono: string;
+}
+
+export interface Banco {
+    nombre: string;
+    id:     string;
+}
+
+export interface Cuenta {
+    tipo:   string;
+    numero: string;
+}

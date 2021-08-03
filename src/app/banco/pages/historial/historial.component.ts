@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BancoService } from '../../services/banco.service';
+import { Transferencias } from '../../interfaces/transferencia.interface';
 
 @Component({
   selector: 'app-historial',
@@ -8,7 +10,18 @@ import { Component } from '@angular/core';
 })
 export class HistorialComponent {
 
-  constructor() { }
+  listahistorial:Transferencias[]=[];
 
+  constructor(private bancoService:BancoService) {
+    this.listarHistorials()
+  }
+
+  listarHistorials(){
+    this.bancoService.obtenerHistorial().subscribe((historial)=>{
+      this.listahistorial=historial;
+    })
+  
+    
+  }
 
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { Bank, RESTBankResponse } from '../../interfaces/banco.interface';
+import { Component, Input} from '@angular/core';
+import { Bank } from '../../interfaces/banco.interface';
 import { BancoService } from '../../services/banco.service';
 import { Destinatario } from '../../interfaces/destinatario.interface';
+
 
 @Component({
   selector: 'app-nuevo-destinatario',
@@ -10,7 +11,7 @@ import { Destinatario } from '../../interfaces/destinatario.interface';
   ]
 })
 export class NuevoDestinatarioComponent {
-
+  @Input() banco: Bank={name:'',id:''}
   bancos: Bank[]=[];
   destinatario: Destinatario={
     _id:'',
@@ -37,8 +38,14 @@ export class NuevoDestinatarioComponent {
     })
   }
 
+  asignaBanco(){
+    console.log(this.banco);
+
+  }
+
   crearDestinatario(){
 
+    console.log(this.destinatario);
 
   }
 

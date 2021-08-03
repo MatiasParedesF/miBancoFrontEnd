@@ -26,8 +26,8 @@
     <div class="row">
       <div class="col-5">
         <label for="banco">Banco</label>
-        <select [(ngModel)]="destinatario.banco" id="banco" class="form-select" aria-label="Default select example" [ngModelOptions]="{standalone: true}">
-          <option *ngFor="let banco of bancos">{{banco.name}}</option>
+        <select id="banco" class="form-select" (change)="asignaBanco()" aria-label="Default select example">
+          <option *ngFor="let banco of bancos" [value]="banco"><a >{{banco.name}}</a></option>
         </select>
       </div>
       <div class="col-5">
