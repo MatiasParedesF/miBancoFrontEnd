@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 import { RESTBankResponse } from '../interfaces/banco.interface';
 import { Destinatario } from '../interfaces/destinatario.interface';
-import { Transferencias } from '../interfaces/transferencia.interface';
+import { HistorialTransferencias } from '../interfaces/Historialtransferencia.interface'
+import { Transferencia } from '../interfaces/transferencia.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,22 @@ export class BancoService {
     const params= new HttpParams().set('termino',termino);
     return this.http.get<Destinatario[]>(url, {params})
   }
-  obtenerHistorial():Observable<Transferencias[]>{
+  
+  obtenerHistorial():Observable<HistorialTransferencias[]>{
     const url=`${this._servicioApiUrl}/historial`;
     const params= new HttpParams().set('usuario','12345678');
-    return this.http.get<Transferencias[]>(url,{params})
+    return this.http.get<HistorialTransferencias[]>(url,{params})
   }
+
+  nuevoDestinatario(destinatario:Destinatario):Observable<Destinatario>{
+    const url=`${this._servicioApiUrl}/destinatario`;
+    return this.http.post<Destinatario>(url, {destinatario});
+  }
+
+  nuevaTransferencia(transferencia:Transferencia):Observable<Transferencia>{
+    const url=`${this._servicioApiUrl}/transferencia`;
+    return this.http.post<Transferencia>(url, {transferencia});
+  }
+
+
 }

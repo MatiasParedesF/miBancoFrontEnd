@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-5">
         <label for="rut">Rut</label>
-        <input type="text" class="form-control" [(ngModel)]="destinatario.run" id="rut" [ngModelOptions]="{standalone: true}" />
+        <input type="text" class="form-control" (input)="verificaRun()" [(ngModel)]="destinatario.run" placeholder="XXXXXXX-X" id="rut" [ngModelOptions]="{standalone: true}" />
       </div>
       <div class="col-5">
         <label for="nombre">Nombre</label>
@@ -26,8 +26,8 @@
     <div class="row">
       <div class="col-5">
         <label for="banco">Banco</label>
-        <select id="banco" class="form-select" (change)="asignaBanco()" aria-label="Default select example">
-          <option *ngFor="let banco of bancos" [value]="banco"><a >{{banco.name}}</a></option>
+        <select id="banco" class="form-select" name="banco" [(ngModel)]="destinatario.banco[0]" [ngModelOptions]="{standalone: true}" aria-label="Default select example">
+          <option  [ngValue]="banco" *ngFor="let banco of bancos"><a >{{banco.name}}</a></option>
         </select>
       </div>
       <div class="col-5">
@@ -42,13 +42,29 @@
     <div class="row">
       <div class="col-5">
         <label for="cuentaNumero">N° De Cuenta</label>
-        <input type="number" class="form-control" [(ngModel)]="destinatario.cuenta[0].numero" id="cuentaNumero" [ngModelOptions]="{standalone: true}"/>
+        <input type="number" class="form-control" [(ngModel)]="destinatario.cuenta[0].numero" placeholder="000000000" id="cuentaNumero" [ngModelOptions]="{standalone: true}"/>
       </div>
     </div>
     <br>
+    <div *ngIf="hayError" class="row">
+      <div class="col">
+          <div class="alert alert-danger">
+              Complete todos los campos
+          </div>
+      </div>
+    </div>
+  <div *ngIf="hayDestinatario" class="row">
+    <div class="col">
+        <div class="alert alert-success">
+          El destinatario fue añadido
+        </div>
+    </div>
+</div>
   <div class="row">
     <div class="col-4"></div>
     <div class="col-4"><button type="submit" class="w-100 btn btn-primary btn-lg">Crear</button></div>
     <div class="col-4"></div>
   </div>
+  <br>
+  <br>
 </form>

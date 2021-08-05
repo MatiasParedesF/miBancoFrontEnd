@@ -2,7 +2,14 @@
 <h2>Historial</h2>
 <hr>
 <br>
-<table  class="table table-hover">
+<div *ngIf="hayError" class="row">
+    <div class="col">
+        <div class="alert alert-danger">
+            No se encontraron transferencias.
+        </div>
+    </div>
+</div>
+<table class="table table-striped">
     <thead>
         <th> # </th>
         <th> Nombre Destinatario </th>
@@ -14,11 +21,12 @@
     <tbody>
         <tr *ngFor="let transferencia of listahistorial; let i=index">
             <td>{{i + 1}}</td>
-            <td>{{transferencia.detinatario[i].nombre}}</td>
-            <td>{{transferencia.detinatario[i].run}}</td>
-            <td>{{transferencia.detinatario[i].banco[0].nombre}}</td>
-            <td>{{transferencia.detinatario[i].cuenta[0].tipo}}</td>
+            <td>{{transferencia.destinatario[0].nombre}}</td>
+            <td>{{transferencia.destinatario[0].run}}</td>
+            <td>{{transferencia.destinatario[0].banco[0].nombre}}</td>
+            <td>{{transferencia.destinatario[0].cuenta[0].tipo}}</td>
             <td>{{transferencia.monto}}</td>
         </tr>
     </tbody>
 </table>
+

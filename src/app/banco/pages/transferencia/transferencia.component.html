@@ -2,17 +2,17 @@
 <h2>Transferencia</h2>
 <hr>
 <br>
-<form (ngSubmit)="buscarDestinatarios()" autocomplete="off" > 
+<form (ngSubmit)="transferir()" autocomplete="off" > 
     <div class="row">
         <div class="col-5">
             <label for="termino">Buscar Destinatario</label>
             <input type="text"name="termino" [(ngModel)]="termino" class="form-control" (input)="teclaPresionada()" [value]="destinatario.nombre"/>
             <div *ngIf="hayError" class="alert alert-danger">
-                No se encontraron destinatarios con el nombre {{termino}} 
+                No se encontraron destinatarios 
             </div>
         </div>
     </div>
-</form>
+
 <div class="row">
     <div class="col-5" style="z-index: 1; position: absolute;">
         <ul *ngIf="mostrarSugerencias" class="list-group">
@@ -43,13 +43,34 @@
     <br> 
     <div class="row">
         <div class="col-5">
-            <label for="termino">monto</label>
-            <input type="text" autocomplete="off" name="termino" class="form-control" />
+            <label for="monto">monto</label>
+            <input (input)="compruebaMonto()" id="monto" type="text" [(ngModel)]="transferencia.monto" autocomplete="off" name="monto" class="form-control" />
+        
+            <div *ngIf="hayErrorMonto" class="alert alert-danger">
+                El monto de la transferencia debe ser mayor a 0
+            </div>
         </div>
     </div>
 <br>
 <div class="row">
     <div class="col-4"></div>
-    <div class="col-4"><button class="w-100 btn btn-primary btn-lg">Transferir</button></div>
+    <div class="col-4">
+        <div *ngIf="hayErrorSinDestinatario" class="alert alert-danger">
+        No se encontraron destinatarios. Cree uno para poder transferir.
+        </div>
+        <div *ngIf="hayErrorTransferencia" class="alert alert-danger">
+            No se produjo un error intentelo mas tarde.
+        </div>
+        <div *ngIf="transferenciaExitosa" class="alert alert-success">
+            La transferencia se realizo con exito.
+        </div>
+    </div>
     <div class="col-4"></div>
   </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"><button type="submit" class="w-100 btn btn-primary btn-lg">Transferir</button></div>
+        <div class="col-4"></div>
+    </div>
+
+</form>
