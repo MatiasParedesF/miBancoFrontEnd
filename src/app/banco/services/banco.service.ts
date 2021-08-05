@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { RESTBankResponse } from '../interfaces/banco.interface';
 import { Destinatario } from '../interfaces/destinatario.interface';
-import { HistorialTransferencias } from '../interfaces/Historialtransferencia.interface'
+import { HistorialTransferencias } from '../interfaces/historialTransferencia.interface'
 import { Transferencia } from '../interfaces/transferencia.interface';
 
 @Injectable({

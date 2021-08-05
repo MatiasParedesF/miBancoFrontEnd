@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BancoService } from '../../services/banco.service';
-import { HistorialTransferencias } from '../../interfaces/Historialtransferencia.interface';
+import { HistorialTransferencias } from '../../interfaces/historialTransferencia.interface';
 
 @Component({
   selector: 'app-historial',
