@@ -1,19 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container text-white"><span><strong>{{"mi banco nueva Transferencia" | uppercase}}</strong></span>
+    <div class="container text-white">
+      <span>
+        <strong>{{"mi banco nueva Transferencia" | uppercase}}</strong>
+      </span>
+
+      <button  class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
      
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav mb-2 mb-lg-0">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"  aria-current="page">Nuevo Destinatario</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="transferencia" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Transferir</a>
           </li>
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="historial" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Historial</a>
           </li>
+       
         </ul>
       </div>
       
     </div>
-</nav>
+</nav>  
